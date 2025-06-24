@@ -21,10 +21,10 @@ import {
   Clock,
   ChevronRight,
 } from "lucide-react";
-import bg1 from "../assets/bg.png";
+import bg1 from "../assets/bg1.png";
 import bg2 from "../assets/bg2.png";
 import bg3 from "../assets/bg3.png";
-import frogImage from "../assets/logo.png";
+// import frogImage from "../assets/logo.png";
 
 const Home = () => {
   const stats = [
@@ -253,9 +253,8 @@ const Home = () => {
                   Excellence
                 </h1>
                 <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                  Leading hot forging specialists delivering superior quality
-                  SS304/316 rings, automotive components, and precision parts
-                  for all industries since 1985.
+                  Serving automotive, industrial, and custom sectors with
+                  high-performance forged components.
                 </p>
               </div>
 
@@ -272,9 +271,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-500">
-                    99%
-                  </div>
+                  <div className="text-3xl font-bold text-orange-500">99%</div>
                   <div className="text-sm text-gray-400">Quality Rate</div>
                 </div>
               </div>
@@ -315,19 +312,19 @@ const Home = () => {
 
             {/* Image */}
             <div className="relative">
-              <div className="relative overflow-hidden rounded-2xl">
+              {/* <div className="relative overflow-hidden rounded-2xl">
                 <img
                   src={frogImage}
                   alt="Hot forging workshop"
                   className="w-full h-[600px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
+              </div> */}
               {/* Floating element */}
-              <div className="absolute -bottom-6 -left-6 bg-orange-500 text-white p-6 rounded-xl shadow-2xl">
+              {/* <div className="absolute -bottom-6 -left-6 bg-orange-500 text-white p-6 rounded-xl shadow-2xl">
                 <div className="text-2xl font-bold">24/7</div>
                 <div className="text-sm">Support Available</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

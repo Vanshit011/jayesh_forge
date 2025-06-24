@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Flame } from 'lucide-react';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import logo from "../assets/JAYESH-1 (1)-Picsart-BackgroundRemover.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Products', href: '/products' },
-    { name: 'About', href: '/about' },
-    { name: 'Industries', href: '/industries' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Products", href: "/products" },
+    { name: "About", href: "/about" },
+    { name: "Industries", href: "/industries" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const isActive = (href: string) => {
@@ -26,9 +27,14 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-orange-500 p-2 rounded-lg">
-              <Flame className="h-6 w-6 text-white" />
-            </div>
+            <img
+              src={logo}
+              alt="Jayesh Forge Logo"
+              style={{
+                height: "85px",
+                width: "auto",
+              }}
+            />
             <span className="text-white text-xl font-bold">Jayesh Forge</span>
           </Link>
 
@@ -40,8 +46,8 @@ const Header = () => {
                 to={item.href}
                 className={`font-medium transition-colors duration-300 ${
                   isActive(item.href)
-                    ? 'text-orange-500'
-                    : 'text-white hover:text-orange-500'
+                    ? "text-orange-500"
+                    : "text-white hover:text-orange-500"
                 }`}
               >
                 {item.name}
@@ -62,7 +68,11 @@ const Header = () => {
             className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
@@ -76,8 +86,8 @@ const Header = () => {
                   to={item.href}
                   className={`block px-3 py-2 transition-colors duration-300 ${
                     isActive(item.href)
-                      ? 'text-orange-500'
-                      : 'text-white hover:text-orange-500'
+                      ? "text-orange-500"
+                      : "text-white hover:text-orange-500"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
