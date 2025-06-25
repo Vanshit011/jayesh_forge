@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Flame,
   Mail,
   Phone,
   MapPin,
@@ -10,6 +9,7 @@ import {
   // MessageSquare,
   AtSign,
 } from "lucide-react";
+import logo from '../assets/JAYESH-1 (1)-Picsart-BackgroundRemover.png'
 
 const Footer = () => {
   const quickLinks = [
@@ -50,17 +50,21 @@ const Footer = () => {
         <div className="py-16 grid lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="bg-orange-500 p-2 rounded-lg">
-                <Flame className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold">Jayesh Forge</span>
-            </Link>
+           <Link to="/" className="flex items-center space-x-2">
+            <img
+              src={logo}
+              alt="Jayesh Forge Logo"
+              style={{
+                height: "50px",
+                width: "auto",
+              }}
+            />
+            <span className="text-white text-xl font-bold">Jayesh Forge</span>
+          </Link>
 
             <p className="text-gray-300 leading-relaxed">
-              Leading hot forging specialists delivering superior quality
-              SS304/316 rings, automotive components, and precision parts for
-              all industries worldwide since 1985.
+              Serving automotive, industrial, and custom sectors with
+              high-performance forged components.
             </p>
 
             <div className="space-y-3">
