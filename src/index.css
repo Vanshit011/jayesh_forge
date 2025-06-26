@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scrollBg {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -1000px 0;
+    }
+  }
+  
+  .bg-scroll {
+    background-repeat: repeat-x;
+    background-size: cover;
+    animation: scrollBg 60s linear infinite;
+  }
+  
