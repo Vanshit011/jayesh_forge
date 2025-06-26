@@ -8,8 +8,9 @@ import {
   Instagram,
   Facebook,
   // MessageSquare,
-  AtSign,
+  // AtSign,
 } from "lucide-react";
+import { RiThreadsFill } from "react-icons/ri";
 
 const Contact = () => {
   const contactInfo = [
@@ -172,7 +173,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="bg-orange-500 hover:bg-orange-600 p-3 rounded-lg transition-colors duration-300"
                   >
-                    <AtSign className="h-6 w-6 text-white" />
+                    <RiThreadsFill className="h-6 w-6 text-white" />
                   </a>
                 </div>
                 <p className="text-gray-600 mt-4 text-sm">

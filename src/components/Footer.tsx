@@ -7,9 +7,10 @@ import {
   Instagram,
   Facebook,
   // MessageSquare,
-  AtSign,
+  // AtSign,
 } from "lucide-react";
 import logo from '../assets/JAYESH-1 (1)-Picsart-BackgroundRemover.png'
+import { RiThreadsFill } from "react-icons/ri";
 
 const Footer = () => {
   const quickLinks = [
@@ -109,7 +110,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-orange-500 p-2 rounded-lg transition-colors duration-300"
               >
-                <AtSign className="h-6 w-6 text-white" />
+                <RiThreadsFill className="h-5 w-5 text-white" />
               </a>
             </div>
           </div>
