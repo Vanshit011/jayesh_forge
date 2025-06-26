@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 import {
   ArrowRight,
   Shield,
   Zap,
   Award,
   // Users,
-  // Factory,
+  Factory,
   // TrendingUp,
   Flame,
   Thermometer,
@@ -233,6 +235,7 @@ const Home = () => {
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
+  const { ref, inView } = useInView({ triggerOnce: true });
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -259,19 +262,30 @@ const Home = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 py-8">
+              <div ref={ref} className="grid grid-cols-3 gap-6 py-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-500">25+</div>
+                  <div className="text-4xl font-bold text-orange-500">
+                    {inView && <CountUp end={25} duration={4} />}+
+                  </div>
                   <div className="text-sm text-gray-400">Years Experience</div>
                 </div>
+
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-500">10k+</div>
+                  <div className="text-4xl font-bold text-orange-500">
+                    {inView && (
+                      <CountUp end={10000} duration={4} separator="," />
+                    )}
+                    +
+                  </div>
                   <div className="text-sm text-gray-400">
                     Projects Completed
                   </div>
                 </div>
+
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-500">99%</div>
+                  <div className="text-4xl font-bold text-orange-500">
+                    {inView && <CountUp end={99} duration={4} />}%
+                  </div>
                   <div className="text-sm text-gray-400">Quality Rate</div>
                 </div>
               </div>
@@ -330,32 +344,23 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Company Overview */}
-      <section className="font-sans">
-        {" "}
-        {/* Remove overall background here, let sections define their own */}
-        {/* Main Overview Section (Light Background) */}
-        <div className="bg-white py-16 px-4">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 text-center mb-12 leading-tight">
-              {" "}
-              {/* font-extrabold, darker text, tighter line-height */}
-              Jayesh Forge:{" "}
-              <span className="text-jayeshOrange">Forging Excellence</span>{" "}
-              Since 2004
-            </h1>
-
-            <div className="flex flex-col md:flex-row items-center gap-12 bg-gray-50 p-8 rounded-2xl shadow-xl border border-gray-100 mb-16">
-              {" "}
-              {/* bg-gray-50, more padding, larger rounded corners, strong shadow, border */}
-              <div className="flex-1 min-w-[300px]">
-                <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                  For nearly four decades, Jayesh Forge has been at the
-                  forefront of hot forging innovation, specializing in SS304/316
-                  rings and automotive components that power industries
-                  worldwide.
+      {/* Company Stats */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Content */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+                  <span className="text-orange-500">Industry Leaders</span> in
+                  Hot Forging
+                </h2>
+                <p className="text-xl text-gray-600 leading-relaxed mb-6">
+                  Since 2004, Jayesh Forge has been at the forefront of hot
+                  forging innovation, specializing in SS304/316 rings and
+                  automotive components that power industries worldwide.
                 </p>
-                <p className="text-lg leading-relaxed text-gray-700">
+                <p className="text-gray-600 leading-relaxed">
                   Our expertise in ring rolling, skew press, friction forging,
                   and hammer forging processes, combined with state-of-the-art
                   technology and unmatched precision, has made us the trusted
@@ -363,76 +368,38 @@ const Home = () => {
                   components across all industries.
                 </p>
               </div>
-              <div className="flex-1 min-w-[300px] text-center">
-                <img
-                  src={bg1}
-                  alt="Jayesh Forge facility or forging process"
-                  className="max-w-full h-auto rounded-xl shadow-2xl transition-transform duration-300 hover:scale-105" // Larger rounded corners, stronger shadow, subtle hover effect
-                />
+
+              {/* Quick Links */}
+              <div className="grid grid-cols-2 gap-4">
+                <Link
+                  to="/services"
+                  className="bg-black text-white p-6 rounded-xl hover:bg-gray-800 transition-colors duration-300 text-center"
+                >
+                  <Flame className="h-8 w-8 text-orange-500 mx-auto mb-3" />
+                  <h4 className="text-lg font-bold mb-2">Our Services</h4>
+                  <p className="text-gray-300 text-sm">Hot forging processes</p>
+                </Link>
+                <Link
+                  to="/products"
+                  className="bg-orange-500 text-white p-6 rounded-xl hover:bg-orange-600 transition-colors duration-300 text-center"
+                >
+                  <Factory className="h-8 w-8 text-white mx-auto mb-3" />
+                  <h4 className="text-lg font-bold mb-2">Our Products</h4>
+                  <p className="text-orange-100 text-sm">
+                    SS304/316 & Auto Parts
+                  </p>
+                </Link>
               </div>
             </div>
-          </div>
-        </div>
-        {/* Mission & Vision Section (Dark Background with Orange/White Text) */}
-        <div className="bg-black py-20 px-4">
-          {" "}
-          {/* Dark background for this section, more vertical padding */}
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-center gap-12">
-              {" "}
-              {/* Larger gap */}
-              <div className="p-8 rounded-xl border border-gray-700 flex-1 min-w-[350px] max-w-2xl text-left bg-gray-800 shadow-2xl">
-                {" "}
-                {/* Slightly darker background for cards, border, shadow */}
-                <h2 className="text-5xl font-bold text-jayeshOrange-light mb-6 flex items-center">
-                  {" "}
-                  {/* Lighter orange for heading, flex for icon, larger text */}
-                  <svg
-                    className="w-10 h-10 mr-4 text-jayeshOrange"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  Our Mission
-                </h2>
-                <p className="text-xl leading-relaxed text-gray-300">
-                  {" "}
-                  {/* White/light gray text for body */}
-                  To deliver superior hot forging solutions specializing in
-                  stainless steel rings and automotive components that exceed
-                  expectations while maintaining the highest standards of
-                  quality, precision, and reliability for all industries
-                  globally.
-                </p>
-              </div>
-              <div className="p-8 rounded-xl border border-gray-700 flex-1 min-w-[350px] max-w-2xl text-left bg-gray-800 shadow-2xl">
-                <h2 className="text-5xl font-bold text-jayeshOrange-light mb-6 flex items-center">
-                  <svg
-                    className="w-10 h-10 mr-4 text-jayeshOrange"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                    <path
-                      fillRule="evenodd"
-                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  Our Vision
-                </h2>
-                <p className="text-xl leading-relaxed text-gray-300">
-                  To be the global leader in hot forging, recognized for our
-                  innovation, sustainable practices, and unwavering commitment
-                  to customer success and technological advancement.
-                </p>
+
+            {/* Stats */}
+            <div className="space-y-6">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src="https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg"
+                  alt="Jayesh Forge facility"
+                  className="w-full h-80 object-cover"
+                />
               </div>
             </div>
           </div>
