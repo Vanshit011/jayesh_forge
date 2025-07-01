@@ -9,7 +9,7 @@ const Hero = () => {
           {/* Content */}
           <div className="text-white space-y-8">
             <div className="space-y-4">
-              <h1 className="text-7xl lg:text-7xl font-bold leading-tight" style={{ paddingTop: '30px' }}>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight ">
                 Jayesh
                 <span className="text-orange-500 block">Forge</span>
                 Excellence
