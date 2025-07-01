@@ -9,13 +9,13 @@ const Hero = () => {
           {/* Content */}
           <div className="text-white space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-7xl lg:text-7xl font-bold leading-tight" style={{ paddingTop: '30px' }}>
                 Jayesh
                 <span className="text-orange-500 block">Forge</span>
                 Excellence
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                Leading hot forging specialists delivering superior quality SS304/316 rings, 
+                Leading hot forging specialists delivering superior quality SS304/316 rings,
                 automotive components, and precision parts for all industries since 1985.
               </p>
             </div>

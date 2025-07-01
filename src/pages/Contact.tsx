@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent, useRef } from "react";
 import {
   Phone,
   Mail,
@@ -11,6 +11,7 @@ import {
   // AtSign,
 } from "lucide-react";
 import { RiThreadsFill } from "react-icons/ri";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const contactInfo = [
@@ -23,7 +24,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["jayeshforge@gmail.com", "quotes@jayeshforge.com"],
+      details: ["jayeshforge@gmail.com", "quotesjayeshforge@gmail.com"],
       action: "Send Email",
     },
     {
@@ -47,6 +48,33 @@ const Contact = () => {
       action: "Emergency Contact",
     },
   ];
+
+  const form = useRef<HTMLFormElement | null>(null);
+
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        'service_4oeyvmm',
+        'template_e2in7tb',
+        form.current,
+        'zX9Gwb3bRKafHxDCQ'
+      )
+      .then(
+        (result) => {
+          alert('Quote request sent successfully!');
+          console.log(result.text);
+           form.current?.reset();
+        },
+        (error) => {
+          alert('Failed to send quote.');
+          console.error(error);
+        }
+      );
+  }
 
   return (
     <div className="min-h-screen pt-20">
@@ -207,13 +235,7 @@ const Contact = () => {
                   Request a Quote
                 </h2>
 
-                <form
-                  action="mailto:jayeshforge@gmail.com"
-                  method="POST"
-                  encType="text/plain"
-                  className="space-y-6"
-                  onSubmit={() => alert("Message sent successfully!")}
-                >
+                <form ref={form} onSubmit={sendEmail} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
