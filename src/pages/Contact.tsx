@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { RiThreadsFill } from "react-icons/ri";
 import emailjs from '@emailjs/browser';
+import { BsWhatsapp } from "react-icons/bs";
 
 const Contact = () => {
   const contactInfo = [
@@ -67,7 +68,7 @@ const Contact = () => {
         (result) => {
           alert('Quote request sent successfully!');
           console.log(result.text);
-           form.current?.reset();
+          form.current?.reset();
         },
         (error) => {
           alert('Failed to send quote.');
@@ -196,6 +197,14 @@ const Contact = () => {
                     <Facebook className="h-6 w-6 text-white" />
                   </a>
                   <a
+                    href="https://wa.me/919426511161"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-orange-500 hover:bg-orange-600 p-3 rounded-lg transition-colors duration-300"
+                  >
+                    <BsWhatsapp className="h-6 w-6 text-white" />
+                  </a>
+                  <a
                     href="https://www.threads.com/@jayesh_forge" // Replace with your actual Threads URL
                     target="_blank"
                     rel="noopener noreferrer"
@@ -220,7 +229,7 @@ const Contact = () => {
                   the clock.
                 </p>
                 <a
-                  href="tel:+919426511161"
+                  href="https://wa.me/919499558009"
                   className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 w-full inline-block text-center"
                 >
                   Emergency Hotline

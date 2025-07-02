@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import logo from '../assets/JAYESH-1 (1)-Picsart-BackgroundRemover.png'
 import { RiThreadsFill } from "react-icons/ri";
+import { BsWhatsapp } from "react-icons/bs";
 
 const Footer = () => {
   const quickLinks = [
@@ -51,17 +52,17 @@ const Footer = () => {
         <div className="py-16 grid lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2 space-y-6">
-           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={logo}
-              alt="Jayesh Forge Logo"
-              style={{
-                height: "50px",
-                width: "auto",
-              }}
-            />
-            <span className="text-white text-xl font-bold">Jayesh Forge</span>
-          </Link>
+            <Link to="/" className="flex items-center space-x-2">
+              <img
+                src={logo}
+                alt="Jayesh Forge Logo"
+                style={{
+                  height: "50px",
+                  width: "auto",
+                }}
+              />
+              <span className="text-white text-xl font-bold">Jayesh Forge</span>
+            </Link>
 
             <p className="text-gray-300 leading-relaxed">
               Serving automotive, industrial, and custom sectors with
@@ -103,6 +104,14 @@ const Footer = () => {
                 className="bg-gray-800 hover:bg-orange-500 p-2 rounded-lg transition-colors duration-300"
               >
                 <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://wa.me/919426511161"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 hover:bg-orange-500 p-2 rounded-lg transition-colors duration-300"
+              >
+                <BsWhatsapp className="h-5 w-5" />
               </a>
               <a
                 href="https://www.threads.com/@jayesh_forge" // Replace with your actual Threads URL
